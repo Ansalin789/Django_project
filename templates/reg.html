@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>register form</title>
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="{% static 'css/reg.css' %}">
+
+</head>
+
+<body>
+
+   <div class="form-container">
+
+      <form action="reg" method="post">
+         {% csrf_token %}
+         <h3>Register Now</h3>
+         <div>
+            <style>
+               h5 {
+                  color: red;
+               }
+            </style>
+            {% for messages in messages %}
+            <h5>{{messages}}</h5>
+            {% endfor %}
+         </div>
+         <input type="text" name="username" required placeholder="enter your name">
+         <input type="email" name="email" required placeholder="enter your email">
+         <input type="password" name="password" required placeholder="enter your password">
+         <input type="password" name="cpassword" required placeholder="confirm your password">
+         <input type="submit" name="submit" value="register now" class="form-btn">
+         <p>already have an account? <a href="/login">login now</a></p>
+      </form>
+
+   </div>
+
+</body>
+
+</html>

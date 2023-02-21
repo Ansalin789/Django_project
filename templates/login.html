@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+
+<body>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <h1>LOGIN</h1>
+        <label for="text">Username</label>
+        <div>
+            <style>
+                h5 {
+                    color: red;
+                    letter-spacing: 2px;
+                    margin-left: 50px;
+                    margin-top: 20px;
+                }
+            </style>
+            {% for messages in messages %}
+            <h5>{{messages}}</h5>
+            {% endfor %}
+        </div>
+        <input type="text" name="username" placeholder="enter your name">
+        <br>
+        <label for="password">password</label>
+        <input type="password" name=password placeholder="enter your passsword">
+        <button>login</button>
+        <p>Don't have an account?<br> <a href="/reg">register now</a></p>
+    </form>
+
+
+
+</body>
+
+</html>
